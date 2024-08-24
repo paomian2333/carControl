@@ -24,8 +24,6 @@ private slots:
 
     //declare set color slot function
 
-    void on_set_color();
-
     void on_pushButton_clicked();
 
     void on_linecheckbox_clicked(bool checked);

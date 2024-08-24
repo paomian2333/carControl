@@ -1,9 +1,0 @@
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/tes3.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/edit_cache.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/rebuild_cache.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/list_install_components.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/local.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/strip.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/tes3_autogen_timestamp_deps.dir
-/media/pa0m1an/软件/BIT/软件工程综合实践/QT/weather report/tes3/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/tes3_autogen.dir

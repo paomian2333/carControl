@@ -16,6 +16,10 @@
 #include <QFile>
 #include <QDir>
 
+//绘图
+#include <QPalette>
+#include <QPixmap>
+
 // Global variable
 QString inputCity;
 
@@ -44,13 +48,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    // 连接红色按钮的点击信号到颜色设置槽函数
-    connect(ui->redradio, &QRadioButton::clicked, this, &MainWindow::on_set_color);
-    // 连接蓝色按钮的点击信号到颜色设置槽函数
-    connect(ui->blueradio, &QRadioButton::clicked, this, &MainWindow::on_set_color);
-    // 连接绿色按钮的点击信号到颜色设置槽函数
-    connect(ui->greenradio, &QRadioButton::clicked, this, &MainWindow::on_set_color);
 }
 
 
@@ -81,25 +78,6 @@ void MainWindow::on_linecheckbox_clicked(bool checked)
     font.setUnderline(checked);
     ui->plainTextEdit->setFont(font);
 }
-
-// Set text color based on selected radio button
-void MainWindow::on_set_color()
-{
-    QString color;
-    if (ui->redradio->isChecked()) {
-        color = "red";
-    } else if (ui->blueradio->isChecked()) {
-        color = "blue";
-    } else if (ui->greenradio->isChecked()) {
-        color = "green";
-    } else {
-        color = "black";
-    }
-
-    // 设置文本框中输入的文本颜色
-    ui->plainTextEdit->setStyleSheet("color: " + color);
-}
-
 
 // Handle the weather query button click
 void MainWindow::on_pushButton_clicked()
@@ -151,14 +129,61 @@ void MainWindow::on_pushButton_clicked()
         QJsonObject dataRes = obj.value("data").toObject();
         QJsonArray forecast = dataRes.value("forecast").toArray();
         QJsonObject todayFore = forecast.first().toObject();
+        QString weatherType = todayFore.value("type").toString();
 
-        QString weatherInfo = QString("城市: %1\t天气: %2\t温度: %3\tPM2.5: %4")
+        QString weatherInfo = QString("城市: %1\n今日天气: %2\n温度: %3\nPM2.5: %4\n%5")
                                   .arg(cityInfo.value("city").toString())
                                   .arg(todayFore.value("type").toString())
                                   .arg(dataRes.value("wendu").toString())
-                                  .arg(dataRes.value("pm25").toInt());
+                                  .arg(dataRes.value("pm25").toInt())
+                                  .arg(todayFore.value("notice").toString());
+
+        //根据天气显示图标
+        QString picFileName;
+        QStringList stringList;
+        stringList << "晴" << "小雨" << "中雨" << "大雨" << "多云" << "阴";
+        switch(stringList.indexOf(weatherType)){
+        case 0:
+            picFileName = "100.svg";
+            break;
+        case 1:
+            picFileName = "305.svg";
+            break;
+        case 2:
+            picFileName = "306.svg";
+            break;
+        case 3:
+            picFileName = "307.svg";
+            break;
+        case 4:
+            picFileName = "103.svg";
+            break;
+        case 5:
+            picFileName = "104.svg";
+            break;
+        }
+
+        QString picPath = QDir::cleanPath(QString("../../res/icons/%1").arg(picFileName));
+        QPalette palette;
+        palette.setBrush(QPalette::Base,
+QBrush(QPixmap(picPath)));
+
+        ui->weatherPic->setPalette(palette);
+
+        QString daysInfo;
+        for(int i = 0; i < 7; i ++){
+            QJsonObject dayObj = forecast[i].toObject();
+            QString ymd = dayObj.value("ymd").toString();
+            QString high = dayObj.value("high").toString();
+            QString low = dayObj.value("low").toString();
+            QString type = dayObj.value("type").toString();
+
+            QString dayInfo = QString("%1 天气：%2 %3 %4\n\n").arg(ymd).arg(type).arg(high).arg(low);
+            daysInfo = daysInfo + dayInfo;
+        }
 
         ui->label->setText(weatherInfo);
+        ui->label_7days->setText(daysInfo);
         reply->deleteLater();
     });
 }
