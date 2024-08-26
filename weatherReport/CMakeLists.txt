@@ -10,8 +10,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Gui)
+# target_link_libraries(mytarget PRIVATE Qt6::Gui)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+# find package GUI
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-#find package network
+# find package network
 find_package(Qt${QT_VERSION_MAJOR}   REQUIRED COMPONENTS Network)
 # find_package(Qt6 COMPONETS Network REQUIRED)
 

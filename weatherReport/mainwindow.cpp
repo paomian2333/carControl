@@ -19,6 +19,7 @@
 //绘图
 #include <QPalette>
 #include <QPixmap>
+#include <QBrush>
 
 // Global variable
 QString inputCity;
@@ -96,6 +97,7 @@ void MainWindow::on_pushButton_clicked()
     QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qWarning() << "Cannot open file:" << file.errorString();
+        file.close();
         return;
     }
     QByteArray fileData = file.readAll();
@@ -164,11 +166,11 @@ void MainWindow::on_pushButton_clicked()
         }
 
         QString picPath = QDir::cleanPath(QString("../../res/icons/%1").arg(picFileName));
-        QPalette palette;
-        palette.setBrush(QPalette::Base,
-QBrush(QPixmap(picPath)));
+        qDebug() << picPath;
+        QPixmap weatherPixmap(picPath);
 
-        ui->weatherPic->setPalette(palette);
+        ui->weatherPic->setPixmap(weatherPixmap);
+        ui->weatherPic->setScaledContents(true);
 
         QString daysInfo;
         for(int i = 0; i < 7; i ++){
