@@ -9,6 +9,7 @@
 #include<QColorDialog>
 #include<QFileDialog>
 #include<QDebug>
+
 Widget::Widget(QWidget *parent,QString name) :
     QWidget(parent),
     ui(new Ui::Widget)

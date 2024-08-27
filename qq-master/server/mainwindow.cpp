@@ -32,7 +32,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_openBt_clicked()
 {
-    tcpServer->listen(QHostAddress::Any, ui->portEdit->text.toUInt());
+    tcpServer->listen(QHostAddress::Any, ui->portEdit->text().toUInt());
 }
 
 
