@@ -25,5 +25,5 @@ FORMS    += widget.ui \
     login.ui
 
 RESOURCES += \
-    res.qrc
+    res_chatroom.qrc
 CONFIG+=c++11

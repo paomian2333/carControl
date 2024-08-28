@@ -1,6 +1,6 @@
 #include "UPlayer/ydplayermainwidget.h"
 #include <QApplication>
-#include <QtWidgets/QDesktopWidget>
+#include <QtGui/QScreen>
 
 int main(int argc, char *argv[])
 {

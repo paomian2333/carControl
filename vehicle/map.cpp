@@ -214,7 +214,7 @@ int resolve_xml::  imortant()
                 QString Qstr = Strway[i];
                 double x = doubleMap[Qstr].lat;
                 double y = doubleMap[Qstr].lon;
-                minLat = std::min(minLat,xMusicWindow);
+                minLat = std::min(minLat,x);
                 minLon = std::min(minLon,y);
                 maxLat = std::max(maxLat,x);
                 maxLon = std::max(maxLon,y);
@@ -232,7 +232,7 @@ int resolve_xml::  imortant()
           }
       }
       for(auto it = mapWay.begin();it != mapWay.end();it++) //根据经纬度计算点与点之间距离，连接成路
-      {MusicWindow
+      {
           QString way = it->first;
           //qDebug()<<way;
           std::vector<QString> Strway = it->second;

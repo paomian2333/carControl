@@ -1,9 +1,10 @@
 #include "mainwindow.h"
 #include "map.h"
 #include "ui_mainwindow.h"
-#include"timewindow.h"
-#include"musicwindow.h"
-#include"weatherReport.h"
+#include "timewindow.h"
+#include "musicwindow.h"
+#include "weatherReport.h"
+#include "chatLogin.h"
 #include<QMovie>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     // weather=new weatherwindow(this);
     mapWidget= new Map(this);
     weather = new weatherReport(this);
+    chatLogin = new Login(this);
 }
 
 MainWindow::~MainWindow()
@@ -82,3 +84,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
     painter.drawPixmap(0, 0, backgroundMovie->currentPixmap());
     QMainWindow::paintEvent(event);
 }
+
+void MainWindow::on_pushButton_chatroom_clicked()
+{
+    this->hide();
+    chatLogin->show();
+}
+

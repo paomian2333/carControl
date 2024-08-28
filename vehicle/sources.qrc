@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sources/stop.png</file>
+        <file>sources/songtab_playmode_singlecycle.png</file>
+        <file>sources/search.png</file>
+        <file>sources/right.png</file>
+        <file>sources/play_fill.png</file>
+        <file>sources/notification_fill.png</file>
+        <file>sources/notification.png</file>
+        <file>sources/music_playmode_random.png</file>
+        <file>sources/music_playmode_order.png</file>
+        <file>sources/menu.png</file>
+        <file>sources/forward_fill.png</file>
+        <file>sources/file.png</file>
+        <file>sources/cat.png</file>
+        <file>sources/backward_fill.png</file>
+        <file>sources/back.png</file>
+    </qresource>
+</RCC>

@@ -11,6 +11,7 @@ class weatherReport;
 class MusicWindow;
 class videowindow;
 class Map;
+class Login;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -32,6 +33,8 @@ private slots:
 
     void on_pushButton_weather_clicked();
 
+    void on_pushButton_chatroom_clicked();
+
 private:
     QMovie *backgroundMovie;
     QTimer *timer;
@@ -40,6 +43,7 @@ private:
     MusicWindow *music;
     weatherReport *weather;
     Map *mapWidget;
+    Login *chatLogin;
     // QWidget interface
 protected:
     virtual void paintEvent(QPaintEvent *event) override;
