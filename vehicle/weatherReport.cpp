@@ -56,6 +56,7 @@ void weatherReport::getWeather(){
         file.close();
         return;
     }
+ 
     QByteArray fileData = file.readAll();
     file.close();
     QString cityCode = findCityCodeByInput(fileData, inputCity);
