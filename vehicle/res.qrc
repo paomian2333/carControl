@@ -70,4 +70,9 @@
     <qresource prefix="/gif">
         <file>mainwindow_image/bkgfig.gif</file>
     </qresource>
+    <qresource prefix="/mapres">
+        <file>map/qss/myQss.qss</file>
+        <file>map/map (3)(1).osm</file>
+        <file>map/v2.png</file>
+    </qresource>
 </RCC>

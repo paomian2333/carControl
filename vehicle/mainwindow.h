@@ -10,7 +10,7 @@ class timewindow;
 class weatherReport;
 class MusicWindow;
 class videowindow;
-class mapwindow;
+class Map;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButton_music_clicked();
 
+    void on_pushButton_map_clicked();
+
     void on_pushButton_time_clicked();
 
     void on_pushButton_weather_clicked();
@@ -37,7 +39,7 @@ private:
     timewindow *time;
     MusicWindow *music;
     weatherReport *weather;
-
+    Map *mapWidget;
     // QWidget interface
 protected:
     virtual void paintEvent(QPaintEvent *event) override;

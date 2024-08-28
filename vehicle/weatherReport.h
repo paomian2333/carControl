@@ -21,6 +21,7 @@ private slots:
     void getWeather();  // 获取天气信息
     void on_pushButton_clicked();
     void on_plainTextEdit_textChanged();
+    void on_btnClose_clicked();
 
 private:
     Ui::weatherReport *ui;

@@ -182,6 +182,12 @@ void weatherReport::on_pushButton_clicked()
     getWeather();
 }
 
+void weatherReport::on_btnClose_clicked()
+{
+    QMainWindow *parent=static_cast<QMainWindow *>(this->parent());
+    this->hide();
+    parent->show();
+}
 // Update inputCity when text changes in plainTextEdit
 void weatherReport::on_plainTextEdit_textChanged()
 {

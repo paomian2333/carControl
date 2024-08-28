@@ -1,8 +1,10 @@
 #include "mainwindow.h"
+#include "map.h"
 #include "ui_mainwindow.h"
 #include"timewindow.h"
 #include"musicwindow.h"
 #include"weatherReport.h"
+#include<QMovie>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -25,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     time=new timewindow(this);
     music=new MusicWindow(this);
     // weather=new weatherwindow(this);
+    mapWidget= new Map(this);
     weather = new weatherReport(this);
 }
 
@@ -59,6 +62,11 @@ void MainWindow::on_pushButton_time_clicked()
 {
     this->hide();
     time->show();
+}
+void MainWindow::on_pushButton_map_clicked()
+{
+    this->hide();       // 隐藏当前窗口
+    mapWidget->show();  // 显示 map 窗口
 }
 void MainWindow::on_pushButton_clicked(){}
 
