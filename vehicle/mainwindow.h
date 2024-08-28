@@ -7,7 +7,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 class timewindow;
-class weatherwindow;
+class weatherReport;
 class MusicWindow;
 class videowindow;
 class mapwindow;
@@ -36,7 +36,7 @@ private:
     Ui::MainWindow *ui;
     timewindow *time;
     MusicWindow *music;
-    weatherwindow *weather;
+    weatherReport *weather;
 
     // QWidget interface
 protected:

@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include"timewindow.h"
 #include"musicwindow.h"
-#include"weatherwindow.h"
+#include"weatherReport.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -24,7 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
     timer->start();
     time=new timewindow(this);
     music=new MusicWindow(this);
-    weather=new weatherwindow(this);
+    // weather=new weatherwindow(this);
+    weather = new weatherReport(this);
 }
 
 MainWindow::~MainWindow()

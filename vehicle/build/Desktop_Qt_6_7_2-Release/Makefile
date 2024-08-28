@@ -57,23 +57,27 @@ SOURCES       = ../../clockwidget.cpp \
 		../../mainwindow.cpp \
 		../../musicwindow.cpp \
 		../../timewindow.cpp \
+		../../weatherReport.cpp \
 		../../weatherwindow.cpp qrc_res.cpp \
 		moc_clockwidget.cpp \
 		moc_mainwindow.cpp \
 		moc_musicwindow.cpp \
 		moc_timewindow.cpp \
+		moc_weatherReport.cpp \
 		moc_weatherwindow.cpp
 OBJECTS       = clockwidget.o \
 		main.o \
 		mainwindow.o \
 		musicwindow.o \
 		timewindow.o \
+		weatherReport.o \
 		weatherwindow.o \
 		qrc_res.o \
 		moc_clockwidget.o \
 		moc_mainwindow.o \
 		moc_musicwindow.o \
 		moc_timewindow.o \
+		moc_weatherReport.o \
 		moc_weatherwindow.o
 DIST          = /opt/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/6.7.2/gcc_64/mkspecs/common/unix.conf \
@@ -296,11 +300,13 @@ DIST          = /opt/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../mainwindow.h \
 		../../musicwindow.h \
 		../../timewindow.h \
+		../../weatherReport.h \
 		../../weatherwindow.h ../../clockwidget.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../musicwindow.cpp \
 		../../timewindow.cpp \
+		../../weatherReport.cpp \
 		../../weatherwindow.cpp
 QMAKE_TARGET  = vehicle
 DESTDIR       = 
@@ -310,7 +316,7 @@ TARGET        = vehicle
 first: all
 ####### Build rules
 
-vehicle: ui_mainwindow.h ui_musicwindow.h ui_timewindow.h ui_weatherwindow.h $(OBJECTS)  
+vehicle: ui_mainwindow.h ui_musicwindow.h ui_timewindow.h ui_weatherReport.h ui_weatherwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../../vehicle.pro /opt/Qt/6.7.2/gcc_64/mkspecs/linux-g++/qmake.conf /opt/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
@@ -778,9 +784,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../res.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt/6.7.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../clockwidget.h ../../mainwindow.h ../../musicwindow.h ../../timewindow.h ../../weatherwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../clockwidget.cpp ../../main.cpp ../../mainwindow.cpp ../../musicwindow.cpp ../../timewindow.cpp ../../weatherwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../mainwindow.ui ../../musicwindow.ui ../../timewindow.ui ../../weatherwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../clockwidget.h ../../mainwindow.h ../../musicwindow.h ../../timewindow.h ../../weatherReport.h ../../weatherwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../clockwidget.cpp ../../main.cpp ../../mainwindow.cpp ../../musicwindow.cpp ../../timewindow.cpp ../../weatherReport.cpp ../../weatherwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../mainwindow.ui ../../musicwindow.ui ../../timewindow.ui ../../weatherReport.ui ../../weatherwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -817,9 +823,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/Qt/6.7.2/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++1z -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /opt/Qt/6.7.2/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_clockwidget.cpp moc_mainwindow.cpp moc_musicwindow.cpp moc_timewindow.cpp moc_weatherwindow.cpp
+compiler_moc_header_make_all: moc_clockwidget.cpp moc_mainwindow.cpp moc_musicwindow.cpp moc_timewindow.cpp moc_weatherReport.cpp moc_weatherwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_clockwidget.cpp moc_mainwindow.cpp moc_musicwindow.cpp moc_timewindow.cpp moc_weatherwindow.cpp
+	-$(DEL_FILE) moc_clockwidget.cpp moc_mainwindow.cpp moc_musicwindow.cpp moc_timewindow.cpp moc_weatherReport.cpp moc_weatherwindow.cpp
 moc_clockwidget.cpp: ../../clockwidget.h \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QWidget \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
@@ -1918,6 +1924,198 @@ moc_timewindow.cpp: ../../timewindow.h \
 		/opt/Qt/6.7.2/gcc_64/libexec/moc
 	/opt/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /media/pa0m1an/软件/BIT/软件工程综合实践/QT/carControl/vehicle/build/Desktop_Qt_6_7_2-Release/moc_predefs.h -I/opt/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/media/pa0m1an/软件/BIT/软件工程综合实践/QT/carControl/vehicle -I/opt/Qt/6.7.2/gcc_64/include -I/opt/Qt/6.7.2/gcc_64/include/QtMultimedia -I/opt/Qt/6.7.2/gcc_64/include/QtWidgets -I/opt/Qt/6.7.2/gcc_64/include/QtGui -I/opt/Qt/6.7.2/gcc_64/include/QtNetwork -I/opt/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../timewindow.h -o moc_timewindow.cpp
 
+moc_weatherReport.cpp: ../../weatherReport.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QMainWindow \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtversionchecks.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtconfiginclude.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtconfigmacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtcoreexports.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qassert.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtnoop.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtypes.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtversion.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcompare_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qyieldcpu.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qconstructormacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qexceptionhandling.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qforeach.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qttypetraits.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfunctionpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmalloc.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qminmax.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qoverload.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qswap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtresource.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qttranslation.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtguiexports.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtmetamacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qarraydatapointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qarraydataops.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qxptype_traits.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q20memory.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringfwd.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q20type_traits.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlatin1stringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qanystringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qutf8stringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringtokenizer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter_base.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcompare.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcomparehelpers.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiodevicebase.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfloat16.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmath.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiterable.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmetacontainer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontainerinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtaggedpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qscopeguard.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbindingstorage.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q23utility.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qaction.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qline.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qshareddata_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qset.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qendian.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qeventpoint.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qvectornd.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpointingdevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qinputdevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QList \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QObject \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QRect \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QSize \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/QTransform \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qnativeinterface.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qscreen_platform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfuture.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfutureinterface.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtsan_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qresultstore.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfuture_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qthreadpool.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qthread.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qrunnable.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qexception.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qpromise.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		moc_predefs.h \
+		/opt/Qt/6.7.2/gcc_64/libexec/moc
+	/opt/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /media/pa0m1an/软件/BIT/软件工程综合实践/QT/carControl/vehicle/build/Desktop_Qt_6_7_2-Release/moc_predefs.h -I/opt/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/media/pa0m1an/软件/BIT/软件工程综合实践/QT/carControl/vehicle -I/opt/Qt/6.7.2/gcc_64/include -I/opt/Qt/6.7.2/gcc_64/include/QtMultimedia -I/opt/Qt/6.7.2/gcc_64/include/QtWidgets -I/opt/Qt/6.7.2/gcc_64/include/QtGui -I/opt/Qt/6.7.2/gcc_64/include/QtNetwork -I/opt/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../weatherReport.h -o moc_weatherReport.cpp
+
 moc_weatherwindow.cpp: ../../weatherwindow.h \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -2177,9 +2375,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_musicwindow.h ui_timewindow.h ui_weatherwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_musicwindow.h ui_timewindow.h ui_weatherReport.h ui_weatherwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_musicwindow.h ui_timewindow.h ui_weatherwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_musicwindow.h ui_timewindow.h ui_weatherReport.h ui_weatherwindow.h
 ui_mainwindow.h: ../../mainwindow.ui \
 		/opt/Qt/6.7.2/gcc_64/libexec/uic
 	/opt/Qt/6.7.2/gcc_64/libexec/uic ../../mainwindow.ui -o ui_mainwindow.h
@@ -2191,6 +2389,10 @@ ui_musicwindow.h: ../../musicwindow.ui \
 ui_timewindow.h: ../../timewindow.ui \
 		/opt/Qt/6.7.2/gcc_64/libexec/uic
 	/opt/Qt/6.7.2/gcc_64/libexec/uic ../../timewindow.ui -o ui_timewindow.h
+
+ui_weatherReport.h: ../../weatherReport.ui \
+		/opt/Qt/6.7.2/gcc_64/libexec/uic
+	/opt/Qt/6.7.2/gcc_64/libexec/uic ../../weatherReport.ui -o ui_weatherReport.h
 
 ui_weatherwindow.h: ../../weatherwindow.ui \
 		/opt/Qt/6.7.2/gcc_64/libexec/uic
@@ -3119,25 +3321,7 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QListWidget \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QListView \
-		../../weatherwindow.h \
-		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonDocument \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonParseError \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonValue \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonArray \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QVariantMap \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QVariantList \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QDebug \
-		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
-		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
-		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
-		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/QNetworkReply \
-		/opt/Qt/6.7.2/gcc_64/include/QtGui/QPixmap \
-		/opt/Qt/6.7.2/gcc_64/include/QtCore/QFile \
-		/opt/Qt/6.7.2/gcc_64/include/QtGui/QPainter
+		../../weatherReport.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 musicwindow.o: ../../musicwindow.cpp ../../musicwindow.h \
@@ -3878,6 +4062,250 @@ timewindow.o: ../../timewindow.cpp ../../timewindow.h \
 		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtimezone.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o timewindow.o ../../timewindow.cpp
 
+weatherReport.o: ../../weatherReport.cpp ../../weatherReport.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QMainWindow \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtversionchecks.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtconfiginclude.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtconfigmacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtcoreexports.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qassert.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtnoop.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtypes.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtversion.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcompare_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qyieldcpu.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qconstructormacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qexceptionhandling.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qforeach.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qttypetraits.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfunctionpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmalloc.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qminmax.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qoverload.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qswap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtresource.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qttranslation.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtguiexports.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtmetamacros.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qarraydatapointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qarraydataops.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qxptype_traits.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q20memory.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringfwd.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q20type_traits.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlatin1stringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qanystringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qutf8stringview.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringtokenizer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter_base.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcompare.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcomparehelpers.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiodevicebase.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfloat16.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmath.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiterable.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmetacontainer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontainerinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtaggedpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qscopeguard.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qbindingstorage.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/q23utility.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qaction.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qline.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qshareddata_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qset.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qendian.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qeventpoint.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qvectornd.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qpointingdevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qinputdevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QList \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QObject \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QRect \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QSize \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/QTransform \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qnativeinterface.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qscreen_platform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfuture.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfutureinterface.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtsan_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qresultstore.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfuture_impl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qthreadpool.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qthread.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qrunnable.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qexception.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qpromise.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		ui_weatherReport.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qtnetworkexports.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QString \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QUrl \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QVariant \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcalendar.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QFlags \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/QNetworkRequest \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt/6.7.2/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QIODevice \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonParseError \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qjsondocument.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcborvalue.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qcborcommon.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/quuid.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonDocument \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonObject \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QJsonArray \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qjsonarray.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QDebug \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QFile \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/QDir \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qdir.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qfileinfo.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtCore/qtimezone.h \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/QPalette \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt/6.7.2/gcc_64/include/QtGui/QBrush
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o weatherReport.o ../../weatherReport.cpp
+
 weatherwindow.o: ../../weatherwindow.cpp ../../weatherwindow.h \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt/6.7.2/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -4147,6 +4575,9 @@ moc_musicwindow.o: moc_musicwindow.cpp
 
 moc_timewindow.o: moc_timewindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_timewindow.o moc_timewindow.cpp
+
+moc_weatherReport.o: moc_weatherReport.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_weatherReport.o moc_weatherReport.cpp
 
 moc_weatherwindow.o: moc_weatherwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_weatherwindow.o moc_weatherwindow.cpp

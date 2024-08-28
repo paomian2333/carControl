@@ -13,6 +13,7 @@ SOURCES += \
     mainwindow.cpp \
     musicwindow.cpp \
     timewindow.cpp \
+    weatherReport.cpp \
     weatherwindow.cpp
 
 HEADERS += \
@@ -20,12 +21,14 @@ HEADERS += \
     mainwindow.h \
     musicwindow.h \
     timewindow.h \
+    weatherReport.h \
     weatherwindow.h
 
 FORMS += \
     mainwindow.ui \
     musicwindow.ui \
     timewindow.ui \
+    weatherReport.ui \
     weatherwindow.ui
 
 # Default rules for deployment.
