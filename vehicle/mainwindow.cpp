@@ -3,7 +3,8 @@
 #include "ui_mainwindow.h"
 #include"timewindow.h"
 #include"musicwindow.h"
-#include"weatherReport.h".h"
+#include"weatherReport.h"
+#include<QMovie>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
