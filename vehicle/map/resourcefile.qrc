@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qrc">
+        <file>map.osm</file>
+        <file>map (3)(1).osm</file>
+        <file>v2.png</file>
+    </qresource>
+</RCC>
