@@ -1,0 +1,73 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>images/sun.png</file>
+        <file>images/moon.png</file>
+        <file>MusicWindow_picture/add.png</file>
+        <file>MusicWindow_picture/background.png</file>
+        <file>MusicWindow_picture/clear.png</file>
+        <file>MusicWindow_picture/cycle.png</file>
+        <file>MusicWindow_picture/default.jpg</file>
+        <file>MusicWindow_picture/defaultPicture.png</file>
+        <file>MusicWindow_picture/delete.png</file>
+        <file>MusicWindow_picture/exit.png</file>
+        <file>MusicWindow_picture/ircbackground.png</file>
+        <file>MusicWindow_picture/multi_beishu.png</file>
+        <file>MusicWindow_picture/musicplayer.png</file>
+        <file>MusicWindow_picture/next.png</file>
+        <file>MusicWindow_picture/noSound.png</file>
+        <file>MusicWindow_picture/pause.png</file>
+        <file>MusicWindow_picture/preview.png</file>
+        <file>MusicWindow_picture/Sound.png</file>
+        <file>MusicWindow_picture/startplay.png</file>
+        <file>MusicWindow_picture/stop.png</file>
+        <file>images/timeback.png</file>
+        <file>MusicWindow_picture/870388.gif</file>
+        <file>MusicWindow_picture/search.png</file>
+        <file>MusicWindow_picture/174128.gif</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>weather/cloudy.png</file>
+        <file>weather/dayu.png</file>
+        <file>weather/dry.png</file>
+        <file>weather/duoyun.png</file>
+        <file>weather/mai.png</file>
+        <file>weather/rainy.png</file>
+        <file>weather/sandfly.png</file>
+        <file>weather/snowy.png</file>
+        <file>weather/sunny.png</file>
+        <file>weather/wet.png</file>
+        <file>weather/wind.png</file>
+        <file>weather/windIcon.png</file>
+        <file>weather/xiaoyu.png</file>
+        <file>weather/yintian.png</file>
+        <file>weather/zhongyu.png</file>
+    </qresource>
+    <qresource prefix="/back">
+        <file>weather/background2.png</file>
+        <file>mainwindow_image/carbackground_day.jpg</file>
+        <file>weather/cloudyday.jpg</file>
+        <file>weather/foggy.jpg</file>
+        <file>weather/overcast.jpg</file>
+        <file>weather/rainyday.jpg</file>
+        <file>weather/snowyday.jpg</file>
+        <file>weather/sunnyday.jpg</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>weather/back.png</file>
+        <file>weather/convert.png</file>
+        <file>weather/GPS.png</file>
+        <file>weather/notice.png</file>
+        <file>weather/search.png</file>
+        <file>mainwindow_image/map.png</file>
+        <file>mainwindow_image/music.png</file>
+        <file>mainwindow_image/tine.png</file>
+        <file>mainwindow_image/video.png</file>
+        <file>mainwindow_image/weather.png</file>
+    </qresource>
+    <qresource prefix="/search">
+        <file>cities.json</file>
+    </qresource>
+    <qresource prefix="/gif">
+        <file>mainwindow_image/bkgfig.gif</file>
+    </qresource>
+</RCC>
