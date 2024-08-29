@@ -16,6 +16,7 @@
 #include <QGraphicsTextItem>
 #include <QNetworkAccessManager>
 #include <QTimer>
+#include <QCloseEvent>
 
 const int INF = 10000000;
 int ressssssssss(int x);
@@ -40,6 +41,9 @@ public:
     void initMap();
     void click();
 
+signals:
+    void mapClose();
+
 private slots:
     void on_btnClose_clicked();
     void onReduceBtnClicked();
@@ -59,6 +63,7 @@ private slots:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void closeEvent(QCloseEvent *event);    // 重写关闭窗口函数
 
 private:
     Ui::Map *ui;  // 将 MainWindow 替换为 Map

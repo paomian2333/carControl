@@ -922,3 +922,7 @@ void Map::shortBtnclicked()
     showShortPath();
     //path.clear();
 }
+
+void Map::closeEvent(QCloseEvent *event){
+    emit mapClose();
+}

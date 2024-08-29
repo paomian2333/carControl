@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QMainWindow>
 #include<QMessageBox>
+
 namespace Ui {
 class chatLogin;
 }
@@ -15,6 +16,9 @@ class Login : public QMainWindow
 public:
     explicit Login(QWidget *parent = 0);
     ~Login();
+
+signals:
+    void chatClose();
 
 private slots:
     void on_pushButton_clicked();

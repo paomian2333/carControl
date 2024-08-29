@@ -193,3 +193,7 @@ void weatherReport::on_plainTextEdit_textChanged()
 {
     inputCity = ui->plainTextEdit->toPlainText();
 }
+
+void weatherReport::closeEvent(QCloseEvent *event){
+    emit weatherClose();
+}

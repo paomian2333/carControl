@@ -49,10 +49,6 @@ void MainWindow::do_show_time()
     this->repaint();
 }
 
-
-
-
-
 void MainWindow::on_pushButton_music_clicked()
 {
     this->hide();
@@ -68,13 +64,22 @@ void MainWindow::on_pushButton_time_clicked()
 void MainWindow::on_pushButton_map_clicked()
 {
     this->hide();       // 隐藏当前窗口
+    connect(mapWidget, &Map::mapClose, [=](){
+        this->show();
+    });
+    mapWidget->setAttribute(Qt::WA_DeleteOnClose);
     mapWidget->show();  // 显示 map 窗口
+
 }
 void MainWindow::on_pushButton_clicked(){}
 
 void MainWindow::on_pushButton_weather_clicked()
 {
     this->hide();
+    connect(weather, &weatherReport::weatherClose, [=](){
+       this->show();
+    });
+    weather->setAttribute(Qt::WA_DeleteOnClose);
     weather->show();
 }
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -89,5 +94,8 @@ void MainWindow::on_pushButton_chatroom_clicked()
 {
     this->hide();
     chatLogin->show();
+    connect(chatLogin, &Login::chatClose, [=](){
+        this->show();
+    });  // 聊天室关闭，主窗口打开
 }
 

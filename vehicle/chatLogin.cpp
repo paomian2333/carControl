@@ -1,7 +1,8 @@
 #include "chatLogin.h"
 #include "ui_chatLogin.h"
-#include<QToolButton>
-#include<QPixmap>
+#include <QToolButton>
+#include <QPixmap>
+#include <QCloseEvent>
 #include "widget.h"
 Login::Login(QWidget *parent) :
     QMainWindow(parent),
@@ -46,6 +47,14 @@ Login::Login(QWidget *parent) :
             //关闭聊天框时将对于的isShow跟改为false
             connect(widget,&Widget::closeWidget,[=](){
                 isShow[i]=false;
+                bool allHide = true;
+                for(auto &show : isShow){
+                    if(show) allHide = false;
+                }
+                if(allHide) {
+                    this->hide();
+                    emit chatClose();
+                }
             });
          });
     }
